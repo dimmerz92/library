@@ -1,0 +1,220 @@
+:root {
+    --darkgreen: #6a7152;
+    --green: #63a46c;
+    --headergreen: #1b998b;
+    --dark: #656176;
+    --darker: #534d56;
+    --purple: #f8f1ff;
+    --darkpurple: #decdf5;
+    --white: #fcfafa;
+}
+
+/*removes default browser behaviour*/
+:focus {
+    outline: 0;
+}
+
+body {
+    font-family: Helvetica, sans-serif;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    height: 100%;
+}
+
+.sidebar {
+    display: grid;
+    grid-template-rows: auto auto 1fr;
+    gap: 1rem;
+    background-color: var(--darker);
+    color: var(--white);
+    padding: 2rem;
+}
+
+form {
+    display: grid;
+    gap: 2rem;
+}
+
+.fields {
+    display: grid;
+    gap: 1rem;
+}
+
+.fields > * {
+    display: grid;
+}
+
+.fields input[type="text"],
+.fields input[type="number"] {
+    font-size: 1.2rem;
+    background-color: transparent;
+    color: var(--white);
+    border: none;
+    border-bottom: 1px var(--white) solid;
+}
+
+.fields input[type="number"] {
+    display: block;
+    width: 100%;
+}
+
+.fields input[type="text"]:hover,
+.fields input[type="number"]:hover {
+    background-color: rgba(255,255,255,0.1);
+}
+
+.fields input[type="text"]:focus,
+.fields input[type="number"]:focus {
+    background-color: rgba(255,255,255,0.1);
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.last {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.block {
+    display: block;
+}
+
+.switch {
+    position: relative;
+    display: block;
+    height: 1.5rem;
+    width: 2.5rem;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background-color: lightgrey;
+    border-radius: 1.5rem;
+    transition: 0.4s;
+    cursor: pointer;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: calc(1.5rem - 8px);
+    width: calc(1.5rem - 8px);
+    bottom: 4px;
+    top: 4px;
+    left: 4px;
+    background-color: var(--white);
+    border-radius: 50%;
+    transition: 0.4s;
+}
+
+.switch input:checked + .slider {
+    background-color: var(--green);
+}
+
+.switch input:checked + .slider::before {
+    transform: translateX(calc(2.5rem - 1.5rem));
+}
+
+.form-buttons {
+    display: grid;
+    grid-template-columns: 0.5fr 1fr 1fr 0.5fr;
+    gap: 1rem;
+}
+
+button {
+    border: none;
+}
+
+#submit {
+    background-color: var(--green);
+    color: var(--white);
+}
+
+#submit:hover {
+    background-color: var(--darkgreen);
+}
+
+.main-content {
+    display: grid;
+    grid-template-rows: auto auto 1fr;
+    gap: 2rem;
+    padding: 4rem 6rem;
+    background-color: var(--dark);
+}
+
+.options {
+    text-align: center;
+}
+
+button {
+    font-size: 1.5rem;
+    border-radius: 1rem;
+    cursor: pointer;
+    padding: 0.2rem 1.5rem;
+}
+
+button:hover {
+    background-color: rgb(210,210,210);
+}
+
+.delete {
+    background-image: url(./icons/delete-outline.svg);
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-color: transparent;
+    height: 32px;
+    width: 32px;
+    border: none;
+    cursor: pointer;
+}
+
+.delete span {
+    display: none;
+}
+
+table {
+    font-size: 1.5rem;
+    border-collapse: collapse;
+}
+
+thead {
+    background-color: var(--headergreen);
+    color: var(--white);
+    height: 3rem;
+}
+
+thead th:nth-child(-n+4) {
+    text-align: left;
+}
+
+tbody tr:nth-child(even) {
+    background-color: var(--purple);
+}
+
+tbody tr:nth-child(odd) {
+    background-color: var(--darkpurple);
+}
+
+tbody td:last-child {
+    text-align: center;
+}
