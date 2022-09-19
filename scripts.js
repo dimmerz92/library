@@ -42,7 +42,7 @@ function bookComparator(book) {
     //Checks if book already in library
     let isIn = false;
     library.forEach(e => {
-        if (JSON.stringify(book) === JSON.stringify(e)) {
+        if (JSON.stringify(book.title) === JSON.stringify(e.title)) {
             isIn = true;
         };
     });
