@@ -5,6 +5,7 @@ const pages = document.getElementById("pages");
 const read = document.getElementById("read");
 const submit = document.getElementById("submit");
 const table = document.getElementById("library");
+const delButton = document.getElementById("delete-all");
 const library = [];
 
 //Listeners
@@ -12,7 +13,11 @@ submit.addEventListener("click", () => {
     addToLibrary();
 });
 
-//Book constructor
+delButton.addEventListener("click", () => {
+    deleteAll();
+});
+
+//Book object
 function Book(title, author, pages, read) {
     this.title = title;
     this.author = author;
@@ -38,7 +43,7 @@ function addToLibrary() {
         for (let key in book) {
             row.insertCell().innerText = book[key];
         };
-        row.insertCell().innerHTML = `<button onclick="deleteBook(this)">delete</button>`;
+        row.insertCell().innerHTML = `<button onclick="deleteBook(this)" class="delete"><span>delete</span></button>`;
     };
 };
 
@@ -63,3 +68,13 @@ function deleteBook(e) {
     };
     e.parentElement.parentElement.remove();
 };
+
+function deleteAll() {
+    //Deletes all books from array and displayed table
+    library.length = 0;
+    table.replaceChildren();
+}
+
+function changeReadStatus() {
+
+}
